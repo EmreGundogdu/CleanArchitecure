@@ -34,7 +34,23 @@ namespace Core.Entities
         }
         public void RemoveItem(int cartItemId)
         {
-            var removedItem = Items.FirstOrDefault(x=>x.Id == cartItemId);
+            var removedItem = Items.FirstOrDefault(x => x.Id == cartItemId);
+            if (removedItem != null)
+            {
+                Items.Remove(removedItem);
+            }
+        }
+        public void RemoveItemWithProduct(int productId)
+        {
+            var removedItem = Items.FirstOrDefault(x => x.ProductId == productId);
+            if (removedItem != null)
+            {
+                Items.Remove(removedItem);
+            }
+        }
+        public void ClearItems()
+        {
+            Items.Clear();
         }
     }
 }
